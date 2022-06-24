@@ -100,10 +100,13 @@ namespace work5
                 }
 
             calcu();
-            textBox5.Text += $"\r\n{para.stu_num.ToString().PadRight(15)}{para.score[para.stu_num, 0].ToString().PadLeft(16)}{para.score[para.stu_num, 1].ToString().PadLeft(20)}" +
-                $"{para.score[para.stu_num, 2].ToString().PadLeft(20)}{para.sum.ToString().PadLeft(20)}{para.avg.ToString().PadLeft(20)}{para.min.ToString().PadLeft(20)}" +
-                $"{para.max.ToString().PadLeft(9)}";
+            //textBox5.Text += $"\r\n{para.stu_num.ToString().PadRight(10)}{para.score[para.stu_num, 0].ToString().PadLeft(10)}{para.score[para.stu_num, 1].ToString().PadLeft(20)}" +
+            //    $"{para.score[para.stu_num, 2].ToString().PadLeft(20)}{para.sum.ToString().PadLeft(20)}{para.avg.ToString().PadLeft(20)}{para.min.ToString().PadLeft(14)}" +
+            //    $"{para.max.ToString().PadLeft(14)}";
             //print();
+
+            label5.Text += $"\n{para.stu_num.ToString().PadRight(20)}{para.score[para.stu_num, 0].ToString().PadLeft(20)}{para.score[para.stu_num, 1].ToString().PadLeft(20)}{para.score[para.stu_num, 2].ToString().PadLeft(20)}{para.sum.ToString().PadLeft(20)}{para.avg.ToString().PadLeft(20)}{para.min.ToString().PadLeft(20)}{para.max.ToString().PadLeft(20)}";
+
 
             para.stu_num++;
 
@@ -112,9 +115,13 @@ namespace work5
 
         }
 
+        Random rd = new Random();
+        
+
         private void button5_Click(object sender, EventArgs e)
         {
-            Random rd = new Random();
+            int rd_num = rd.Next(0, 100);
+            //Random rd = new Random();
             for (int i = 0; i<20; i++)
             {
                 int[] score = new int[3];
@@ -125,16 +132,20 @@ namespace work5
                 for (int j = 0; j < 3; j++) //放入隨機參數
                 {
 
-                    int rd_num = rd.Next(0, 100);
-                    para.score[para.stu_num, j] = rd_num;
+                    //int rd_num = rd.Next(0, 100);
+                    //para.score[para.stu_num, j] = rd_num;
 
                 }
 
                 calcu();
-                textBox5.Text += $"\r\n{para.stu_num.ToString().PadRight(15)}{para.score[para.stu_num, 0].ToString().PadLeft(16)}{para.score[para.stu_num, 1].ToString().PadLeft(20)}" +
-                    $"{para.score[para.stu_num, 2].ToString().PadLeft(20)}{para.sum.ToString().PadLeft(20)}{para.avg.ToString().PadLeft(20)}{para.min.ToString().PadLeft(20)}" +
-                    $"{para.max.ToString().PadLeft(9)}";
+                //textBox5.Text += $"\r\n{para.stu_num.ToString().PadRight(15)}{para.score[para.stu_num, 0].ToString().PadLeft(16)}{para.score[para.stu_num, 1].ToString().PadLeft(20)}" +
+                //    $"{para.score[para.stu_num, 2].ToString().PadLeft(20)}{para.sum.ToString().PadLeft(20)}{para.avg.ToString().PadLeft(20)}{para.min.ToString().PadLeft(14)}" +
+                //    $"{para.max.ToString().PadLeft(14)}";
                 //print();
+                label5.Text += $"\n{para.stu_num.ToString().PadRight(15)}{para.score[para.stu_num, 0].ToString().PadLeft(16)}{para.score[para.stu_num, 1].ToString().PadLeft(20)}" +
+                    $"{para.score[para.stu_num, 2].ToString().PadLeft(20)}{para.sum.ToString().PadLeft(20)}{para.avg.ToString().PadLeft(20)}{para.min.ToString().PadLeft(14)}" +
+                    $"{para.max.ToString().PadLeft(14)}";
+
 
                 para.stu_num++;
             }
@@ -179,11 +190,20 @@ namespace work5
             }
 
 
-            for(int i = 0 ; i<4 ; i++)
-            {
-                textBox6.Text += $"\r\n{statis[i].PadRight(6)}{a_sum[0].ToString().PadLeft(6)}{a_sum[1].ToString().PadLeft(12)}" +
-                    $"{a_sum[2].ToString().PadRight(9)}";
-            }
+            //for(int i = 0 ; i<4 ; i++)
+            //{
+                textBox6.Text += $"\r\n{statis[0].PadRight(6)}{a_sum[0].ToString().PadLeft(14)}{a_sum[1].ToString().PadLeft(30)}" +
+                    $"{a_sum[2].ToString().PadLeft(30)}";
+
+                textBox6.Text += $"\r\n{statis[1].PadRight(6)}{a_avg[0].ToString().PadLeft(14)}{a_avg[1].ToString().PadLeft(30)}" +
+                      $"{a_avg[2].ToString().PadLeft(30)}";
+
+                textBox6.Text += $"\r\n{statis[2].PadRight(6)}{a_max[0].ToString().PadLeft(14)}{a_max[1].ToString().PadLeft(30)}" +
+                        $"{a_max[2].ToString().PadLeft(30)}";
+
+                textBox6.Text += $"\r\n{statis[3].PadRight(6)}{a_min[0].ToString().PadLeft(14)}{a_min[1].ToString().PadLeft(30)}" +
+                       $"{a_min[2].ToString().PadLeft(30)}";
+            //}
         }
     }
 }
